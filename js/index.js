@@ -1,6 +1,7 @@
 //预加载的图片
 var loadImg = [
-	{path:'img/logo.png',type:'img',name:'logo'}
+	{path:'img/logo.png',type:'img',name:'logo'},
+	{path:'img/loadBkg.jpg',type:'img',name:'loadBkg'}
 ]
 //加载的图片
 var gameImg = [
@@ -94,7 +95,7 @@ var gameImg = [
 	{path:'img/yt04.png',type:'img',name:'yt04'}
 ];
 //全局函数
-var backLayer,logoText,loadpic,loadpicr;
+var backLayer,logoText,loadup;
 //初始化
 LInit(1000/40,"load",750,1206,main);
 //游戏入口主函数
@@ -107,6 +108,9 @@ function main(){
 }
 //预加载页面
 function loadImging(result){
+	//背景
+	var backimg = new LBitmap(new LBitmapData(result['loadBkg']));
+	backLayer.addChild(backimg);
 	//logo
 	var logo = new LBitmap(new LBitmapData(result['logo']));
 	logo.scaleX = 1.5;
@@ -116,34 +120,31 @@ function loadImging(result){
 	//text
 	logoText = new LTextField();
 	logoText.size = 22;
-	logoText.color = '#ccad94';
-	logoText.text = '100%';
-	logoText.x = (LGlobal.width-logoText.getWidth()+300)/2;
-	logoText.y = 500+logo.getHeight()+43;
-	
-	//loadpic
-	loadpic = new LSprite();
-	loadpic.x = (LGlobal.width-loadpic.getWidth()-280-logoText.getWidth())/2;
-	loadpic.y = 500+logo.getHeight()+50;
-	loadpic.graphics.drawRect(0,'#9d223e',[0,0,0,10],true,'#9d223e');
-	//loadpicr
-	loadpicr = new LSprite();
-	loadpicr.x = (LGlobal.width-loadpic.getWidth()-280-logoText.getWidth())/2;
-	loadpicr.y = 500+logo.getHeight()+50;
-	loadpicr.graphics.drawRect(0,'#999999',[0,0,280,10],true,'#999999');
-	
-	backLayer.graphics.drawRect(0,'#000000',[0,0,LGlobal.width,LGlobal.height],true,'#ffffff');
-	backLayer.addChild(logo);
+	logoText.color = '#ffffff';
 	logoText.text = '0%';
+	logoText.x = 535;
+	logoText.y = 500+logo.getHeight()+24;
+	//加载条背景
+	var loaddown = new LSprite();
+	loaddown.x = 225;
+	loaddown.y = 500+logo.getHeight()+30;
+	loaddown.graphics.drawRoundRect(0,'#0d7d80',[0,0,300,10,5],true,'#0d7d80');
+	//加载条
+	loadup = new LSprite();
+	loadup.x = 225;
+	loadup.y = 500+logo.getHeight()+30;
+	loadup.graphics.drawRoundRect(0,'#ffffff',[0,0,300,10,5],true,'#ffffff');
+	backLayer.addChild(logo);
 	backLayer.addChild(logoText);
-	backLayer.addChild(loadpicr);
-	backLayer.addChild(loadpic);
+	backLayer.addChild(loaddown);
+	backLayer.addChild(loadup);
 	LLoadManage.load(gameImg,loading,gameStart);//读取加载页面背景图片
 }
 //加载页面
 function loading(progress){
 	logoText.text = parseInt(progress)+'%';
-	loadpic.graphics.drawRect(0,'#ccad94',[0,0,280*progress/100,10],true,'#ccad94');
+	loadup.graphics.clear();
+	loadup.graphics.drawRoundRect(0,'#ffffff',[0,0,300*progress/100,10,5],true,'#ffffff');
 }
 function gameStart(){
 	backLayer.remove();
