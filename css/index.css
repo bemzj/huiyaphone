@@ -1,0 +1,634 @@
+/*浮动*/
+.floatl{
+	float: left;
+}
+.floatr{
+	float: right;
+}
+.clearl{
+	clear: left;
+}
+.clearr{
+	clear: right;
+}
+.clearb{
+	clear: both;
+}
+body{
+	font-family: "微软雅黑";
+	-webkit-text-size-adjust:none;
+	position: relative;
+}
+img{
+	display: block;
+}
+#content>div{
+	overflow: hidden;
+}
+#load{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+/*首页轮播*/
+#banner img{
+	width: 100%;
+}
+#banner .swiper-pagination-bullet{
+	background: #4c4e4f;
+}
+#banner .swiper-pagination-bullet-active{
+	background: white!important;
+}
+/*年轻*/
+#young{
+	width: 100%;
+	padding: 0.5rem 0;
+}
+#young .yTitle p{
+	text-align: center;
+	font-size: 0.25rem;
+	color: #131417;
+	line-height: 0.6rem;
+	font-weight: bold;
+}
+#young .yTitle img{
+	width: 40%;
+	margin: 0 auto;
+	padding-bottom: 0.3rem;
+}
+/*左图右字*/
+#young .lprt{
+	background-color: #eeeeee;
+	margin-bottom: 2px;
+}
+#young .lprt .lpic{
+	width: 60.8%;
+}
+#young .lprt .lpic img{
+	width: 100%;
+}
+#young .lprt .rtext{
+	width: 39.2%;
+}
+#young .lprt .rtext img{
+	width: 40%;
+	padding-bottom: 0.1rem;
+	margin-left: 10%;
+	margin-top: 0.45rem;
+}
+#young .lprt .rtext p{
+	font-size: 0.25rem;
+	color: #666666;
+	line-height: 0.4rem;
+	margin-left: 10%;
+}
+/*左字右图*/
+#young .ltrp{
+	background-color: #eeeeee;
+	margin-bottom: 2px;
+}
+#young .ltrp .ltext{
+	width: 39.2%;
+}
+#young .ltrp .rpic{
+	width: 60.8%;
+}
+#young .ltrp .rpic img{
+	width: 100%;
+}
+#young .ltrp .ltext ul li{
+	
+}
+#young .ltrp .ltext img{
+	width: 40%;
+	padding-bottom: 0.1rem;
+	margin-left: 50%;
+	margin-top: 0.45rem;
+}
+#young .ltrp .ltext p{
+	font-size: 0.25rem;
+	color: #666666;
+	line-height: 0.4rem;
+	margin-right: 10%;
+	width: 90%;
+	text-align: right;
+}
+#young .play{
+	display: block;
+	width: 35%;
+	line-height: 0.8rem;
+	border-radius: 0.4rem;
+	font-size: 0.28rem;	
+	color: white;
+	text-align: center;
+	background: url(../img/play.png) no-repeat 0.25rem center;
+	background-size: auto 55%; 
+	text-indent: 0.45rem;
+	background-color: #111111;
+	margin: 0 auto;
+	margin-top: 0.5rem;
+}
+/*产品展示*/
+#allPro{
+	background: #f6f7f7;
+}
+#allPro .allPro{
+	width: 88%;
+	margin: 0 auto;
+}
+#allPro .allPro .navs{
+	width: 100%;
+	padding: 0.4rem 0;
+}
+#allPro .allPro .navs ul li{
+	float: left;
+	width: 20%;
+	font-size: 0.28rem;
+	padding: 0.075rem 0;
+	border-radius: 5px;
+}
+
+#allPro .allPro .navs ul li a{
+	display: block;
+	width: 98%;
+	font-size: 0.2rem;
+	text-align: center;
+	color: #333333;	
+}
+#allPro .allPro .navs ul li span{
+	display: block;
+	width: 1px;
+	margin-top: 0.08rem;
+	height: 0.2rem;
+	background-color: #999999;
+}
+#allPro .allPro .navs ul li:nth-child(5) span{
+	background: #f6f7f7;
+}
+.navs-active{
+	background: #badcdd!important;
+}
+.navs-active span{
+	background-color: #badcdd !important;
+}
+.span{
+	background-color: #f6f7f7 !important;
+}
+	/*产品轮播图*/
+#allPro	.proBanner .swiper-slide{
+	width: 88%;
+	margin: 0 auto;
+}
+#allPro	.proBanner img{
+	width: 100%;
+}
+#allPro	.proBanner .swiper-pagination-bullet{
+	background: #4c4e4f;
+}
+#allPro	.proBanner .swiper-pagination-bullet-active{
+	background: white!important;
+}
+/*标题*/
+#allPro .type{
+	width: 100%;
+	margin-top: 0.4rem;
+}
+#allPro .type p{
+	width: 100%;
+	font-size: 0.3rem;
+	line-height: 0.6rem;
+	color: #333333;
+	border-bottom: 1px solid #a0a0a0;
+}
+	/*导航轮播图*/
+#allPro	.navBanner{
+	margin-top: 0.3rem;
+}
+#allPro	.navBanner .swiper-slide{
+	width: 20%;
+	margin: 0 auto;
+}
+#allPro	.navBanner img{
+	width: 100%;
+}
+#allPro .types{
+	width: 88%;
+	margin: 0 auto;
+	padding: 0.3rem 0rem;
+}
+#allPro .types img{
+	width: 100%;
+}
+.swiper-container-nav .swiper-slide-active img{
+	border: 1px solid #c5a185;
+}
+.swiper-container-nav p{
+	text-align: center;
+	font-size: 0.2rem;
+}
+
+/*芭莎视频*/
+#bsVideo{
+	width: 88%;
+	margin: 0 auto;
+	padding-bottom: 0.5rem;
+}
+#bsVideo ul li:nth-child(1) img{
+	padding: 0.4rem 0 0.3rem 0;
+	display: block;
+	width: 40%;
+	margin: 0 auto;
+}
+#bsVideo ul li:nth-child(2) .videoBox{
+	width: 100%;
+	position: relative;	
+}
+#bsVideo ul li:nth-child(2) .videoBox img{
+	width: 100%;
+}
+#bsVideo ul li:nth-child(2) .videoBox .videoPlay{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	-webkit-justify-content: center;
+	-webkit-flex-direction: column;
+}
+#bsVideo ul li:nth-child(2) .videoBox .videoPlay img{
+	display: block;
+	width: 10%;
+}
+#bsVideo ul li:nth-child(2) .videoBox .videoPlay p{
+	font-size: 0.2rem;
+	line-height: 0.4rem;
+	color: white;
+}
+#videoOne{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: none;
+	z-index: 5;
+}
+/*芭莎岩石*/
+#basha{
+	margin: 0.5rem 0;
+}
+.topOne{
+	width: 100%;
+	position: relative;
+}
+.topOne>img{
+	width: 100%;
+}
+.topOne>.topOn>img{
+	position: absolute;
+	left: 6%;
+}
+.topOne>.topOn>img:nth-child(1){
+	width: 38.4%;
+	top: 15.9%;
+}
+.topOne>.topOn>img:nth-child(2){
+	width: 47.2%;
+	top: 22.53%;
+}
+.topOne>.topOn>img:nth-child(3){
+	width: 33.2%;
+	top: 31.99%;
+}
+.topOne>.topOn>img:nth-child(4){
+	width: 31.6%;
+	top: 45.67%;
+}
+.topOne>.topOn>img:nth-child(5){
+	width: 66.53%;
+	bottom: 11.07%;
+}
+.bottomOne{
+	width: 100%;
+	position: relative;
+}
+.bottomOne>img{
+	width: 100%;
+}
+.bottomOne>.bottomOn>img{
+	position: absolute;
+	width: 17.73%;
+}
+.bottomOne>.bottomOn>img:nth-child(1){
+	bottom: 4.5%;
+	left: 7.47%;
+}
+.bottomOne>.bottomOn>img:nth-child(2){
+	bottom: 8.5%;
+	left: 26.8%;
+}
+.bottomOne>.bottomOn>img:nth-child(3){
+	bottom: 6%;
+	left: 45.6%;
+}
+.bottomOne>.bottomOn>img:nth-child(4){
+	width: 29.73%;
+	bottom: 0%;
+	right: 5%;
+}
+.bottomOne>.bottomOn>img:nth-child(5){
+	width: 17.2%;
+	top: 13.02%;
+	left: 25.6%;
+}
+
+.bottomOne>.bottomOn>img:nth-child(6){
+	width: 33.73%;
+	top: 17.78%;
+	left: 17.6%;
+}
+.bottomOne>.bottomOn>img:nth-child(7){
+	width: 49.2%;
+	top: 23.78%;
+	left: 10%;
+}
+/*t时代*/
+.topTwo{
+	width: 100%;
+	position: relative;
+}
+.topTwo>img{
+	width: 100%;
+}
+.topTwo>.topTwoOn>img{
+	position: absolute;
+	right: 7.3%;
+}
+.topTwo>.topTwoOn>img:nth-child(1){
+	width: 26.4%;
+	top: 27.77%;
+}
+.topTwo>.topTwoOn>img:nth-child(2){
+	width: 42.8%;
+	top: 34.41%;
+}
+.topTwo>.topTwoOn>img:nth-child(3){
+	width: 27.73%;
+	top: 44.27%;
+}
+.topTwo>.topTwoOn>img:nth-child(4){
+	width: 24.53%;
+	top: 57%;
+}
+.topTwo>.topTwoOn>img:nth-child(5){
+	width: 70%;
+	bottom: 13.48%;
+}
+#tshidai .bottomOne>.bottomOn>img:nth-child(5){
+	width: 23.47%;
+	top: 11.98%;
+	left: 21.6%;
+}
+
+#tshidai .bottomOne>.bottomOn>img:nth-child(6){
+	width: 39.2%;
+	top: 16.38%;
+	left: 13.6%;
+}
+#tshidai .bottomOne>.bottomOn>img:nth-child(7){
+	width: 47.87%;
+	top: 21.47%;
+	left: 9.3%;
+}
+/*木色年华*/
+#ms .topTwo>.topTwoOn>img:nth-child(1){
+	width: 26%;
+	top: 23.13%;
+}
+#ms .topTwo>.topTwoOn>img:nth-child(2){
+	width: 46.53%;
+	top: 30.78%;
+}
+#ms .topTwo>.topTwoOn>img:nth-child(3){
+	width: 40.13%;
+	top: 41.45%;
+}
+#ms .topTwo>.topTwoOn>img:nth-child(4){
+	width: 35.2%;
+	top: 55.53%;
+}
+#ms .topTwo>.topTwoOn>img:nth-child(5){
+	width: 50.66%;
+	bottom: 8.45%;
+}
+#ms .bottomOne>.bottomOn>img{
+	position: absolute;
+	width: 16.13%;
+}
+#ms .bottomOne>.bottomOn>img:nth-child(2){
+	left: 25%;
+}
+#ms .bottomOne>.bottomOn>img:nth-child(3){
+	left: 42.5%;
+}
+#ms .bottomOne>.bottomOn>img:nth-child(4){
+	width: 34.4%;
+	bottom: 3.8%;
+}
+#ms .bottomOne>.bottomOn>img:nth-child(5){
+	width: 23.47%;
+	top: 11.98%;
+	left: 21.6%;
+}
+
+#ms .bottomOne>.bottomOn>img:nth-child(6){
+	width: 39.2%;
+	top: 16.38%;
+	left: 13.6%;
+}
+#ms .bottomOne>.bottomOn>img:nth-child(7){
+	width: 47.87%;
+	top: 21.47%;
+	left: 9.3%;
+}
+/*现代花纹*/
+#ms .bottomOne>.bottomOn>img{
+	position: absolute;
+	width: 16.67%;
+}
+#xd .topTwo>.topTwoOn>img:nth-child(1){
+	width: 21.07%;
+	top: 23.13%;
+}
+#xd .topTwo>.topTwoOn>img:nth-child(2){
+	width: 63.2%;
+	top: 30.78%;
+}
+#xd .topTwo>.topTwoOn>img:nth-child(3){
+	width: 38.8%;
+	top: 41.45%;
+}
+#xd .topTwo>.topTwoOn>img:nth-child(4){
+	width: 45.73%;
+	top: 55.53%;
+}
+#xd .topTwo>.topTwoOn>img:nth-child(5){
+	width: 22%;
+	bottom: 8.45%;
+}
+/*现代花纹*/
+#xd .bottomOne>.bottomOn>img:nth-child(2){
+	left: 27%;
+}
+#xd .bottomOne>.bottomOn>img:nth-child(3){
+	left: 46.5%;
+}
+#xd .bottomOne>.bottomOn>img:nth-child(4){
+	width: 27.73%;
+	bottom: 1%;
+}
+#xd .bottomOne>.bottomOn>img:nth-child(5){
+	width: 14.67%;
+	top: 11.98%;
+	left: 26.27%;
+}
+#xd .bottomOne>.bottomOn>img:nth-child(6){
+	width: 40%;
+	top: 16.38%;
+	left: 12.53%;
+}
+#xd .bottomOne>.bottomOn>img:nth-child(7){
+	width: 47.87%;
+	top: 21.47%;
+	left: 8.7%;
+}
+/*工业*/
+#gy .topTwo>.topTwoOn>img:nth-child(1){
+	width: 30%;
+	top: 15.2%;
+}
+#gy .topTwo>.topTwoOn>img:nth-child(2){
+	top: 22.74%;
+	width: 44.5%;
+}
+#gy .topTwo>.topTwoOn>img:nth-child(3){
+	width: 35.33%;
+	top: 33.6%;
+}
+#gy .topTwo>.topTwoOn>img:nth-child(4){
+	top: 46.28%;
+	width: 31.33%;
+}
+#gy .topTwo>.topTwoOn>img:nth-child(5){
+	width: 67.6%;
+	bottom: 11.87%;
+}
+#gy .bottomOne>.bottomOn>img:nth-child(1){
+	bottom: 0%;
+}
+#gy .bottomOne>.bottomOn>img:nth-child(2){
+	left: 27%;
+	bottom: 4%;
+}
+#gy .bottomOne>.bottomOn>img:nth-child(3){
+	left: 46.5%;
+	bottom: 2%;
+}
+#gy .bottomOne>.bottomOn>img:nth-child(4){
+	width: 27.73%;
+	bottom: -2%;
+}
+#gy .bottomOne>.bottomOn>img:nth-child(5){
+	width: 14.67%;
+	top: 11.98%;
+	left: 27.7%;
+}
+#gy .bottomOne>.bottomOn>img:nth-child(6){
+	width: 33.73%;
+	top: 16.38%;
+	left: 18%;
+}
+#gy .bottomOne>.bottomOn>img:nth-child(7){
+	width: 49.2%;
+	top: 21.47%;
+	left: 10.13%;
+}
+/*底部*/
+#bottom{
+	width: 100%;	
+	position: relative;
+}
+#bottom>img{
+	width:100%;
+}
+#bottom>.bottom{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+#bottom>.bottom>img{
+	position: absolute;
+}
+#bottom>.bottom>img:nth-child(1){
+	width: 52.4%;
+	left: 6%;
+	top: 13.43%;
+}
+#bottom>.bottom>img:nth-child(2){
+	width: 50.4%;
+	right: 6%;
+	bottom: 13.43%;
+}
+#bottom>.bottom>img:nth-child(3){
+	width: 51.06%;
+	top: 17.52%;
+	right: 7%;
+}
+#bottom>.bottom>img:nth-child(4){
+	left: 8%;
+	width: 42.53%;
+	bottom: 29%;
+}
+#ad{
+	width: 100%;
+}
+#ad a{
+	display: block;
+}
+#ad img{
+	width: 100%;
+}
+.moreknow a{
+	display: block;
+	width: 41%;
+	line-height: 0.8rem;
+	border-radius: 0.4rem;
+	font-size: 0.28rem;	
+	color: white;
+	text-align: center;
+	background: url(../img/know.png) no-repeat 0.28rem center;
+	background-size: auto 55%; 
+	text-indent: 0.45rem;
+	background-color: #111111;
+	margin: 0 auto;
+	margin-top: 0.8rem;
+	margin-bottom: 0.8rem;
+}
+#popWindow{
+	position: fixed;
+	background-color: green;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 100%;
+	z-index: 10;
+}
