@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>汇亚产品专题</title>
+		<title>汇亚TT现代砖</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
 		<meta content="yes" name="apple-mobile-web-app-capable"/>
@@ -15,8 +15,17 @@
 	    <script type="text/javascript" src="js/swiper-3.4.2.min.js" ></script>
 	    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	    <script type="text/javascript" src="js/scrollReveal.js" ></script>
+        <script>
+            //判断是否为手机端访问
+            var uaTest = /Android|webOS|Windows Phone|iPhone|ucweb|ucbrowser|iPod|BlackBerry/i.test(navigator.userAgent.toLowerCase());
+            var touchTest = 'ontouchend' in document;
+            if(!uaTest || !touchTest){
+                window.location.href = 'http://huiya.hengdikeji.com/api/huiya/index.html';
+            }
+        </script>
 	</head>
 	<body>
+
 		<div id="load"></div>
 		<div id="content" style="display: none;">
 			<!--轮播图-->
@@ -462,6 +471,10 @@
 			</div>
 		</div>
 		<div id="popWindow"></div>
+
+        <div style="display: none;">
+            <script src="https://s22.cnzz.com/z_stat.php?id=1264538472&web_id=1264538472" language="JavaScript"></script>
+        </div>
 		<script type="text/javascript" src="js/index.js" ></script>
 		<script>
 			//px转rem
