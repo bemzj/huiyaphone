@@ -10,9 +10,10 @@
 	    <meta content="telephone=no" name="format-detection"/>
 	    <link rel="stylesheet" href="css/reset.css" />
 	    <link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
-	    <link rel="stylesheet" href="css/index.css" />
+	    <link rel="stylesheet" href="css/index.css?v=2" />
 	    <script type="text/javascript" src="js/lufylegend-1.10.1.min.js" ></script>
 	    <script type="text/javascript" src="js/swiper-3.4.2.min.js" ></script>
+        <script type="text/javascript" src="https://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
 	    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	    <script type="text/javascript" src="js/scrollReveal.js" ></script>
         <script>
@@ -24,29 +25,21 @@
             }
         </script>
 	</head>
-	<body>
+	<body id="vueMain">
+        <div style="display: none">
 
+        </div>
 		<div id="load"></div>
 		<div id="content" style="display: none;">
 			<!--轮播图-->
 			<div id="banner">
 				<div class="swiper-container swiper-container-banner">
 				    <div class="swiper-wrapper">
-				        <div class="swiper-slide">
-				            <img src="img/banner.jpg" />
-				            </div>
-				        <div class="swiper-slide">
-				            <img src="img/banner.jpg" />
+
+				        <div class="swiper-slide" v-for="item in banners">
+				            <img src="{{item.thumb}}" />
 				        </div>
-				        <div class="swiper-slide">
-				            <img src="img/banner.jpg" />
-				        </div>
-				        <div class="swiper-slide">
-				            <img src="img/banner.jpg" />
-				        </div>
-				        <div class="swiper-slide">
-				            <img src="img/banner.jpg" />
-				        </div>
+
 				    </div>
 				    <!-- 如果需要分页器 -->
 	    			<div class="swiper-pagination"></div>
@@ -147,37 +140,39 @@
 						</div>
 					</li>
 					<li>
-						<a href="###" class="play" data-scroll-reveal="enter bottom and move 20px over 1.2s ">播放视频</a>
+						<a href="###" v-on:touchstart="playBox()" class="play hide" data-scroll-reveal="enter bottom and move 20px over 1.2s ">播放视频</a>
+
 					</li>
 				</ul>
+
 			</div>
 			<!--产品展示-->
 			<div id="allPro">
 				<div class="allPro">
 					<div class="navs">
 						<ul>
-							<li class="navs-active">
+							<li class="navs-active" v-on:touchstart="replaceBanner('bsys',0)">
 								<a href="###" class="floatl">芭莎时代</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
 							<li>
-								<a href="###" class="floatl">T时代</a>
+								<a href="###" class="floatl" v-on:touchstart="replaceBanner('tys',0)">T时代</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
 							<li>
-								<a href="###" class="floatl">木色年华</a>
+								<a href="###" class="floatl" v-on:touchstart="replaceBanner('msnh',0)">木色年华</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
 							<li>
-								<a href="###" class="floatl">现代布纹</a>
+								<a href="###" class="floatl" v-on:touchstart="replaceBanner('xdbw',0)">现代布纹</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
 							<li>
-								<a href="###" class="floatl">工业印象</a>
+								<a href="###" class="floatl" v-on:touchstart="replaceBanner('gyyx',0)">工业印象</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
@@ -188,41 +183,8 @@
 				<div class="proBanner">
 					<div class="swiper-container swiper-container-pro">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
-							</div>
-							<div class="swiper-slide">
-								<img src="img/produce01.jpg" />
+							<div class="swiper-slide" v-for="item in productList.big">
+								<img src="{{item.thumb}}" />
 							</div>
 						</div>
 						<!-- 如果需要分页器 -->
@@ -237,54 +199,11 @@
 				<div class="navBanner">
 					<div class="swiper-container swiper-container-nav">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900501</p>
+							<div class="swiper-slide" v-for="item in productList.small">
+								<img src="{{item.thumb}}" />
+								<p>{{item.title}}</p>
 							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900502</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900503</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900504</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900505</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900506</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900501</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900502</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900503</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900504</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900505</p>
-							</div>
-							<div class="swiper-slide">
-								<img src="img/navbanner.png" />
-								<p>TP0900506</p>
-							</div>
+
 						</div>
 					</div>
 				</div>
@@ -294,7 +213,7 @@
 					</div>
 				</div>
 				<div class="types">
-					<img src="img/types.jpg" />
+					<img src="{{format}}" />
 				</div>
 			</div>
 			<!--芭莎视频-->
@@ -343,7 +262,7 @@
 				</div>
 			</div>
 			<div class="moreknow">
-				<a href="###" data-scroll-reveal="enter bottom and move 20px over 1.2s ">进一步了解</a>
+				<a href="###" class="hide" data-scroll-reveal="enter bottom and move 20px over 1.2s ">进一步了解</a>
 			</div>
 			<!--T时代-->
 			<div id="tshidai">
@@ -371,7 +290,7 @@
 				</div>
 			</div>
 			<div class="moreknow">
-				<a href="###" data-scroll-reveal="enter bottom and move 20px over 1.2s ">进一步了解</a>
+				<a href="###" class="hide" data-scroll-reveal="enter bottom and move 20px over 1.2s ">进一步了解</a>
 			</div>
 			<!--木色年华-->
 			<div id="ms">
@@ -399,7 +318,7 @@
 				</div>
 			</div>
 			<div class="moreknow">
-				<a href="###" data-scroll-reveal="enter bottom and move 20px over 1.2s">进一步了解</a>
+				<a href="###" class="hide" data-scroll-reveal="enter bottom and move 20px over 1.2s">进一步了解</a>
 			</div>
 			<!--现代印象-->
 			<div id="xd">
@@ -427,7 +346,7 @@
 				</div>
 			</div>
 			<div class="moreknow">
-				<a href="###" data-scroll-reveal="enter bottom and move 20px over 1.2s">进一步了解</a>
+				<a href="###" class="hide" data-scroll-reveal="enter bottom and move 20px over 1.2s">进一步了解</a>
 			</div>
 			<!--工业印象-->
 			<div id="gy">
@@ -455,7 +374,7 @@
 				</div>
 			</div>
 			<div class="moreknow">
-				<a href="###" data-scroll-reveal="enter bottom and move 20px over 1.2s">进一步了解</a>
+				<a href="###" class="hide" data-scroll-reveal="enter bottom and move 20px over 1.2s">进一步了解</a>
 			</div>
 			<div id="bottom">
 				<img src="img/bottomBkg.jpg" />
@@ -467,15 +386,23 @@
 				</div>
 			</div>
 			<div id="ad">
-				<a href="###"><img src="img/ad.jpg" /></a>
+				<a href="http://huiya.hengdikeji.com/api/mobile/index.html"><img src="img/ad.jpg" /></a>
 			</div>
 		</div>
 		<div id="popWindow"></div>
-
+        <div class="videBox">
+            <div class="video2">
+                <video id="video2" controls="" poster="img/bsvideo.jpg" preload="perload" playsinline=""  width="1" height="1" type="video/mp4" style="opacity: 1;">
+                    <source  src="http://ovy8sjkfb.bkt.clouddn.com/video1111.mp4"></source>
+                </video>
+                <img v-on:touchstart="close()" src="img/close.png" alt="" style="width: 30px;margin-top: 20px">
+            </div>
+        </div>
         <div style="display: none;">
             <script src="https://s22.cnzz.com/z_stat.php?id=1264538472&web_id=1264538472" language="JavaScript"></script>
         </div>
 		<script type="text/javascript" src="js/index.js" ></script>
+		<script type="text/javascript" src="js/vue.js" ></script>
 		<script>
 			//px转rem
 			(function(doc, win) {
@@ -499,6 +426,10 @@
 	        (function(){
 				window.scrollReveal = new scrollReveal({ reset: true, move: '50px'});
 			})();
+	        $(function(){
+	            var w_h=$(window).height();
+	            $('.video2').css({"height":w_h+'px'});
+            })
 		</script>
 	</body>
 </html>

@@ -92,7 +92,27 @@ var gameImg = [
 	{path:'img/yt01.png',type:'img',name:'yt01'},
 	{path:'img/yt02.png',type:'img',name:'yt02'},
 	{path:'img/yt03.png',type:'img',name:'yt03'},
-	{path:'img/yt04.png',type:'img',name:'yt04'}
+	{path:'img/yt04.png',type:'img',name:'yt04'},
+
+	{path:'http://huiya-product.hengdikeji.com/m-bsbig.jpg',type:'img',name:'big1'},
+	{path:'http://huiya-product.hengdikeji.com/pc-bashasmall.jpg',type:'img',name:'big2'},
+	{path:'http://huiya-product.hengdikeji.com/m-tysbig.jpg',type:'img',name:'big3'},
+	{path:'http://huiya-product.hengdikeji.com/pc-tysbig.jpg',type:'img',name:'big4'},
+	{path:'http://huiya-product.hengdikeji.com/m-msnhbig-1.jpg',type:'img',name:'big5'},
+	{path:'http://huiya-product.hengdikeji.com/m-msnhbig-2.jpg',type:'img',name:'big6'},
+	{path:'http://huiya-product.hengdikeji.com/pc-msnhsmall-2.jpg',type:'img',name:'big7'},
+	{path:'http://huiya-product.hengdikeji.com/pc-msnhsmall-1.jpg',type:'img',name:'big8'},
+	{path:'http://huiya-product.hengdikeji.com/m-xdbwbig-1.jpg',type:'img',name:'big9'},
+	{path:'http://huiya-product.hengdikeji.com/m-xdbwbig-2.jpg',type:'img',name:'big18'},
+	{path:'http://huiya-product.hengdikeji.com/m-xdbwbig-3.jpg',type:'img',name:'big17'},
+	{path:'http://huiya-product.hengdikeji.com/pc-xdbwsmall-1.jpg',type:'img',name:'big10'},
+	{path:'http://huiya-product.hengdikeji.com/pc-xdbwsmall-2.jpg',type:'img',name:'big11'},
+	{path:'http://huiya-product.hengdikeji.com/pc-xdbwsmall-3.jpg',type:'img',name:'big12'},
+	{path:'http://huiya-product.hengdikeji.com/m-gyyxbig-1.jpg',type:'img',name:'big13'},
+	{path:'http://huiya-product.hengdikeji.com/m-gyyxbig-2.jpg',type:'img',name:'big14'},
+	{path:'http://huiya-product.hengdikeji.com/pc-gyyxsmall-1.jpg',type:'img',name:'big15'},
+	{path:'http://huiya-product.hengdikeji.com/pc-gyyxsmall-2.jpg',type:'img',name:'big16'}
+
 ];
 //全局函数
 var backLayer,logoText,loadup;
@@ -158,31 +178,7 @@ function gameStart(){
 	    autoplayDisableOnInteraction : false,
 	    pagination: '.swiper-pagination',
 	});
-	//导航轮播图
-	var navBanner = new Swiper('.swiper-container-nav', {
-	    slidesPerView: 'auto',
-	    paginationClickable: true,
-	    loopedSlides:6,
-	    spaceBetween:8,
-	    centeredSlides:true,
-	    touchRatio: 0.2,
-	    slideToClickedSlide: true
-	});
-	//产品轮播图
-	var proBanner = new Swiper('.swiper-container-pro', {
-	    pagination: '.swiper-pagination',
-	    slidesPerView: 'auto',
-	    paginationClickable: true,
-	    autoplay:5000,
-	    loopedSlides:3,
-	    spaceBetween:10,
-	    centeredSlides:true,
-	    onInit: function(swiper){
-	    }
-	});
-	//
-	proBanner.params.control = navBanner;
-	navBanner.params.control = proBanner;
+
 }
 //文档准备完毕
 $(document).ready(function(){

@@ -159,7 +159,7 @@ img{
 #allPro .allPro .navs ul li span{
 	display: block;
 	width: 1px;
-	margin-top: 0.08rem;
+	/*margin-top: 0.08rem;*/
 	height: 0.2rem;
 	background-color: #999999;
 }
@@ -207,7 +207,7 @@ img{
 }
 #allPro	.navBanner .swiper-slide{
 	width: 20%;
-	margin: 0 auto;
+	/*margin: 0 auto;*/
 }
 #allPro	.navBanner img{
 	width: 100%;
@@ -632,4 +632,31 @@ img{
 	left: 0;
 	top: 100%;
 	z-index: 10;
+}
+.videBox{
+	display: none;
+}
+.video2{
+	width: 100%;
+	/*display: none;*/
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: #000;
+	z-index: 999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	display: -webkit-flex;
+	-webkit-align-items: center;
+	-webkit-justify-content: center;
+	-webkit-flex-direction: column;
+}
+#video2{
+	width: 100%;
+	height: 40%;
+}
+.hide{
+	display: none !important;
 }
