@@ -21,7 +21,7 @@
             var uaTest = /Android|webOS|Windows Phone|iPhone|ucweb|ucbrowser|iPod|BlackBerry/i.test(navigator.userAgent.toLowerCase());
             var touchTest = 'ontouchend' in document;
             if(!uaTest || !touchTest){
-                window.location.href = 'http://huiya.hengdikeji.com/api/huiya/index.html';
+//              window.location.href = 'http://huiya.hengdikeji.com/api/huiya/index.html';
             }
         </script>
 	</head>
@@ -38,7 +38,6 @@
 				        <div class="swiper-slide" v-for="item in banners">
 				            <img src="{{item.thumb}}" />
 				        </div>
-
 				    </div>
 				    <!-- 如果需要分页器 -->
 	    			<div class="swiper-pagination"></div>
