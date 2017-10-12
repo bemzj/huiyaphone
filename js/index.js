@@ -93,7 +93,9 @@ var gameImg = [
 	{path:'img/yt02.png',type:'img',name:'yt02'},
 	{path:'img/yt03.png',type:'img',name:'yt03'},
 	{path:'img/yt04.png',type:'img',name:'yt04'},
-
+	{path:'img/left.png',type:'img',name:'left'},
+	{path:'img/right.png',type:'img',name:'right'},
+	{path:'img/hand.png',type:'img',name:'hand'},
 	{path:'http://huiya-product.hengdikeji.com/m-bsbig.jpg',type:'img',name:'big1'},
 	{path:'http://huiya-product.hengdikeji.com/pc-bashasmall.jpg',type:'img',name:'big2'},
 	{path:'http://huiya-product.hengdikeji.com/m-tysbig.jpg',type:'img',name:'big3'},
@@ -168,6 +170,7 @@ function loading(progress){
 }
 function gameStart(){
 	backLayer.remove();
+	$('#load').remove();
 	$('#load').css('display','none');
 	$('#content').show();
 	//轮播图
@@ -177,8 +180,56 @@ function gameStart(){
 	    loop:true,
 	    autoplayDisableOnInteraction : false,
 	    pagination: '.swiper-pagination',
+	    nextButton: '.swiper-button-next',
+    	prevButton: '.swiper-button-prev',
 	});
-
+	$(document).on('touchstart','#prev1',function(){
+		banner.slidePrev();
+	});
+	$(document).on('touchstart','#next1',function(){
+		banner.slideNext();
+	});
+	//产品轮播图
+	var proBanner1 = new Swiper('.swiper-container-pro1', {
+		pagination: '.swiper-pagination',
+		effect : 'fade',
+		loop:true,
+		onlyExternal : true,
+		
+	});
+	//产品轮播图
+	var proBanner2 = new Swiper('.swiper-container-pro2', {
+		pagination: '.swiper-pagination',
+		loop:true,
+		nextButton: '.swiper-button-next',
+    	prevButton: '.swiper-button-prev',
+		onSlideNextStart:function(swiper){
+			proBanner1.slideNext();
+		},
+		onSlidePrevStart:function(swiper){
+			proBanner1.slidePrev();
+		},
+		
+	});
+	$(document).on('touchstart','#prev',function(){
+		proBanner1.slidePrev();
+		proBanner2.slidePrev();
+	});
+	$(document).on('touchstart','#next',function(){
+		proBanner1.slideNext();
+		proBanner2.slideNext();
+	});
+	//
+	$(document).on('touchstart','#hand',function(){
+		window.location.href = "http://huiya.hengdikeji.com/api/mobile/index.html";
+	});
+	
+	setInterval(function(){
+		$('#hand img').animate({marginBottom:'20px',opacity:'0'},500,function(){
+			$(this).css('margin-bottom','0px');
+			$(this).css('opacity','1.0');
+		})
+	},500);
 }
 //文档准备完毕
 $(document).ready(function(){
@@ -204,13 +255,13 @@ $(document).ready(function(){
 			$('#content').hide();
 		});
 	});
-	$('#popWindow').on('touchstart',function(){		
-		$('#content').stop().slideDown(500,function(){
-			$(document).scrollTop(scrollhh);
-			$("#popWindow").stop().animate({top:'100%'},500);
-		});
-		
-	});
+//	$('#popWindow').on('touchstart',function(){		
+//		$('#content').stop().slideDown(500,function(){
+//			$(document).scrollTop(scrollhh);
+//			$("#popWindow").stop().animate({top:'100%'},500);
+//		});
+//		
+//	});
 	//滚动条位置
 	$(window).scroll(function(){
 		scrollh = $(document).scrollTop();
@@ -230,4 +281,5 @@ $(document).ready(function(){
 		$(this).hide();
 		$(this).siblings('img').css('opacity',0);
 	});
+	
 });

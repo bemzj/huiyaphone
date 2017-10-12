@@ -35,7 +35,6 @@
 			<div id="banner">
 				<div class="swiper-container swiper-container-banner">
 				    <div class="swiper-wrapper">
-
 				        <div class="swiper-slide" v-for="item in banners">
 				            <img src="{{item.thumb}}" />
 				        </div>
@@ -43,6 +42,8 @@
 				    </div>
 				    <!-- 如果需要分页器 -->
 	    			<div class="swiper-pagination"></div>
+	    			<div class="swiper-button-prev" id="prev1"></div>
+    				<div class="swiper-button-next" id="next1"></div>
 				</div>
 			</div>
 			<!--年轻-->
@@ -180,15 +181,23 @@
 						<div class="clearl"></div>
 					</div>
 				</div>
-				<div class="proBanner">
+				<!--<div class="proBanner">
 					<div class="swiper-container swiper-container-pro">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide" v-for="item in productList.big">
 								<img src="{{item.thumb}}" />
 							</div>
 						</div>
-						<!-- 如果需要分页器 -->
 	    				<div class="swiper-pagination"></div>
+					</div>
+				</div>-->
+				<div class="proBanner">
+					<div class="swiper-container swiper-container-pro1">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="item in productList.big">
+								<img src="{{item.thumb}}" />
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="allPro">
@@ -196,7 +205,7 @@
 						<p data-scroll-reveal="enter left and move 20px over 1.2s ">型号：</p>
 					</div>
 				</div>
-				<div class="navBanner">
+				<!--<div class="navBanner">
 					<div class="swiper-container swiper-container-nav">
 						<div class="swiper-wrapper">
 							<div class="swiper-slide" v-for="item in productList.small">
@@ -206,6 +215,18 @@
 
 						</div>
 					</div>
+				</div>-->
+				<div class="proBanner">
+					<div class="swiper-container swiper-container-pro2">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="item in productList.small">
+								<img src="{{item.thumb}}" />
+								<p>{{item.title}}</p>
+							</div>
+						</div>
+						<div class="swiper-button-prev" id="prev"></div>
+    					<div class="swiper-button-next" id="next"></div>
+					</div>			
 				</div>
 				<div class="allPro" >
 					<div class="type">
@@ -387,6 +408,9 @@
 			</div>
 			<div id="ad">
 				<a href="http://huiya.hengdikeji.com/api/mobile/index.html"><img src="img/ad.jpg" /></a>
+				<div id="hand">
+					<img src="img/hand.png" />
+				</div>
 			</div>
 		</div>
 		<div id="popWindow"></div>
