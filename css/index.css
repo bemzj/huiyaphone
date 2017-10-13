@@ -43,7 +43,7 @@ img{
 /*年轻*/
 #young{
 	width: 100%;
-	padding: 0.5rem 0;
+	padding: 0.3rem 0 0.5rem;
 }
 #young .yTitle p{
 	text-align: center;
@@ -128,6 +128,44 @@ img{
 	background-color: #111111;
 	margin: 0 auto;
 	margin-top: 0.5rem;
+}
+.lpic{
+	position: relative;
+}
+.line{
+	position: absolute;
+	top: 10%;
+	left: 89%;
+	width: 22.8%!important;
+}
+.rpic{
+	position: relative;
+}
+.line img{
+	width: 100%!important;
+	height: auto;
+}
+.line1{
+	position: absolute;
+	top: 10%;
+	left:-11%;
+	width: 22.8%!important;
+	z-index: 500;
+}
+.line1 img{
+	width: 100%!important;
+	height: auto;
+	z-index: 500;
+}
+.bsttt{
+	margin-top: 0.3rem;
+}
+.bsttt p {
+    text-align: center;
+    font-size: 0.25rem;
+    color: #131417;
+    line-height: 0.6rem;
+    font-weight: bold;
 }
 /*产品展示*/
 #allPro{
@@ -236,7 +274,7 @@ img{
 	padding-bottom: 0.5rem;
 }
 #bsVideo ul li:nth-child(1) img{
-	padding: 0.4rem 0 0.3rem 0;
+	padding: 0.0rem 0 0.3rem 0;
 	display: block;
 	width: 40%;
 	margin: 0 auto;
@@ -346,19 +384,19 @@ img{
 }
 .bottomOne>.bottomOn>img:nth-child(5){
 	width: 17.2%;
-	top: 13.02%;
+	top: 10.5%;
 	left: 25.6%;
 }
 
 .bottomOne>.bottomOn>img:nth-child(6){
-	width: 33.73%;
-	top: 17.78%;
-	left: 17.6%;
+	width: 39.73%;
+	top: 14.58%;
+	left: 14.7%;
 }
 .bottomOne>.bottomOn>img:nth-child(7){
-	width: 49.2%;
-	top: 23.78%;
-	left: 10%;
+	width: 48.2%;
+    top: 19.0%;
+    left: 10.5%;
 }
 /*t时代*/
 .topTwo{
@@ -394,19 +432,19 @@ img{
 }
 #tshidai .bottomOne>.bottomOn>img:nth-child(5){
 	width: 23.47%;
-	top: 11.98%;
-	left: 21.6%;
+	top: 9.98%;
+	left: 22.6%;
 }
 
 #tshidai .bottomOne>.bottomOn>img:nth-child(6){
-	width: 39.2%;
-	top: 16.38%;
-	left: 13.6%;
+	width: 43.2%;
+    top: 14.08%;
+    left: 12.6%;
 }
 #tshidai .bottomOne>.bottomOn>img:nth-child(7){
-	width: 47.87%;
-	top: 21.47%;
-	left: 9.3%;
+	width: 46.87%;
+	top: 18.17%;
+	left: 11.3%;
 }
 /*木色年华*/
 #ms .topTwo>.topTwoOn>img:nth-child(1){
@@ -444,20 +482,20 @@ img{
 	bottom: 3.8%;
 }
 #ms .bottomOne>.bottomOn>img:nth-child(5){
-	width: 23.47%;
-	top: 11.98%;
-	left: 21.6%;
+	width: 21.47%;
+    top: 10.5%;
+    left: 21.6%;
 }
 
 #ms .bottomOne>.bottomOn>img:nth-child(6){
-	width: 39.2%;
-	top: 16.38%;
-	left: 13.6%;
+	width: 43.2%;
+    top: 14.98%;
+    left: 11.4%;
 }
 #ms .bottomOne>.bottomOn>img:nth-child(7){
-	width: 47.87%;
-	top: 21.47%;
-	left: 9.3%;
+	width: 42.5%;
+	top: 19.7%;
+	left: 11.7%;
 }
 /*现代花纹*/
 #ms .bottomOne>.bottomOn>img{
@@ -497,18 +535,18 @@ img{
 }
 #xd .bottomOne>.bottomOn>img:nth-child(5){
 	width: 14.67%;
-	top: 11.98%;
+	top: 10.98%;
 	left: 26.27%;
 }
 #xd .bottomOne>.bottomOn>img:nth-child(6){
-	width: 40%;
-	top: 16.38%;
-	left: 12.53%;
+	width: 45%;
+    top: 16.38%;
+    left: 12.53%;
 }
 #xd .bottomOne>.bottomOn>img:nth-child(7){
-	width: 47.87%;
-	top: 21.47%;
-	left: 8.7%;
+	width: 50.87%;
+    top: 21.47%;
+    left: 9.5%
 }
 /*工业*/
 #gy .topTwo>.topTwoOn>img:nth-child(1){
@@ -547,19 +585,19 @@ img{
 	bottom: -2%;
 }
 #gy .bottomOne>.bottomOn>img:nth-child(5){
-	width: 14.67%;
-	top: 11.98%;
-	left: 27.7%;
+	width: 17.2%;
+    top: 10.5%;
+    left: 25.6%;
 }
 #gy .bottomOne>.bottomOn>img:nth-child(6){
-	width: 33.73%;
-	top: 16.38%;
-	left: 18%;
+	width: 39.73%;
+    top: 14.58%;
+    left: 14.7%;
 }
 #gy .bottomOne>.bottomOn>img:nth-child(7){
-	width: 49.2%;
-	top: 21.47%;
-	left: 10.13%;
+	width: 48.2%;
+    top: 19.0%;
+    left: 10.5%;
 }
 /*底部*/
 #bottom{
@@ -590,13 +628,13 @@ img{
 	bottom: 13.43%;
 }
 #bottom>.bottom>img:nth-child(3){
-	width: 51.06%;
-	top: 17.52%;
-	right: 7%;
+	width: 59.06%;
+    top: 17.52%;
+    right: 7%;
 }
 #bottom>.bottom>img:nth-child(4){
 	left: 8%;
-	width: 42.53%;
+	width: 65.53%;
 	bottom: 29%;
 }
 #ad{
