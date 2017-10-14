@@ -96,6 +96,7 @@ var gameImg = [
 	{path:'img/left.png',type:'img',name:'left'},
 	{path:'img/right.png',type:'img',name:'right'},
 	{path:'img/hand.png',type:'img',name:'hand'},
+
 	{path:'http://huiya-product.hengdikeji.com/m-bsbig.jpg',type:'img',name:'big1'},
 	{path:'http://huiya-product.hengdikeji.com/pc-bashasmall.jpg',type:'img',name:'big2'},
 	{path:'http://huiya-product.hengdikeji.com/m-tysbig.jpg',type:'img',name:'big3'},
@@ -173,53 +174,24 @@ function gameStart(){
 	$('#load').remove();
 	$('#load').css('display','none');
 	$('#content').show();
-	//轮播图
-	var banner = new Swiper('.swiper-container-banner', {
-	    direction: 'horizontal',
-	    autoplay : 5000,
-	    loop:true,
-	    autoplayDisableOnInteraction : false,
-	    pagination: '.swiper-pagination',
-	    nextButton: '.swiper-button-next',
-    	prevButton: '.swiper-button-prev',
-	});
-	$(document).on('touchstart','#prev1',function(){
-		banner.slidePrev();
-	});
-	$(document).on('touchstart','#next1',function(){
-		banner.slideNext();
-	});
-	//产品轮播图
-	var proBanner1 = new Swiper('.swiper-container-pro1', {
-		pagination: '.swiper-pagination',
-		effect : 'fade',
-		loop:true,
-		onlyExternal : true,
-		
-	});
-	//产品轮播图
-	var proBanner2 = new Swiper('.swiper-container-pro2', {
-		pagination: '.swiper-pagination',
-		loop:true,
-		nextButton: '.swiper-button-next',
-    	prevButton: '.swiper-button-prev',
-		onSlideNextStart:function(swiper){
-			proBanner1.slideNext();
-		},
-		onSlidePrevStart:function(swiper){
-			proBanner1.slidePrev();
-		},
-		
-	});
-	$(document).on('touchstart','#prev',function(){
-		proBanner1.slidePrev();
-		proBanner2.slidePrev();
-	});
-	$(document).on('touchstart','#next',function(){
-		proBanner1.slideNext();
-		proBanner2.slideNext();
-	});
-	//
+
+    //轮播图
+    var banner = new Swiper('.swiper-container-banner', {
+        direction: 'horizontal',
+        autoplay : 5000,
+        loop:true,
+        autoplayDisableOnInteraction : false,
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+    });
+    $(document).on('touchstart','#prev1',function(){
+        banner.slidePrev();
+    });
+    $(document).on('touchstart','#next1',function(){
+        banner.slideNext();
+    });
+
 	$(document).on('touchstart','#hand',function(){
 		window.location.href = "http://huiya.hengdikeji.com/api/mobile/index.html";
 	});

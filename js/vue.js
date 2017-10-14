@@ -17,47 +17,48 @@ var all=new Vue({
         $.get('json/banner.json',false,function(res){
             $this.banners=res.banner;
             setTimeout(function(){
-                var banner = new Swiper('.swiper-container-banner', {
-                    direction: 'horizontal',
-                    autoplay : 5000,
-                    loop:true,
-                    autoplayDisableOnInteraction : false,
-                    nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev'
-                });
+
             },500)
         },"JSON");
+
         $.get('json/prodect.json',false,function(res){
             $this.productList=res.bsys.banner[0];
             $this.product=res;
             $this.format=res.bsys.format;
+
             setTimeout(function(){
-                //导航轮播图
-                var navBanner = new Swiper('.swiper-container-nav', {
-                    slidesPerView: 'auto',
-                    paginationClickable: true,
-                    loopedSlides:6,
-                    spaceBetween:8,
-                    centeredSlides:true,
-                    touchRatio: 0.2,
-                    slideToClickedSlide: true
+                //产品轮播图
+                var proBanner1 = new Swiper('.swiper-container-pro1', {
+                    pagination: '.swiper-pagination',
+                    effect : 'fade',
+                    loop:true,
+                    onlyExternal : true
+
                 });
                 //产品轮播图
-                var proBanner = new Swiper('.swiper-container-pro', {
+                var proBanner2 = new Swiper('.swiper-container-pro2', {
                     pagination: '.swiper-pagination',
-                    slidesPerView: 'auto',
-                    paginationClickable: true,
-                    autoplay:5000,
-                    loopedSlides:3,
-                    spaceBetween:10,
-                    centeredSlides:true,
-                    onInit: function(swiper){
-                    }
+                    loop:true,
+                    nextButton: '.swiper-button-next',
+                    prevButton: '.swiper-button-prev',
+                    onSlideNextStart:function(swiper){
+                        proBanner1.slideNext();
+                    },
+                    onSlidePrevStart:function(swiper){
+                        proBanner1.slidePrev();
+                    },
+
+                });
+                $(document).on('touchstart','#prev',function(){
+                    proBanner1.slidePrev();
+                    proBanner2.slidePrev();
+                });
+                $(document).on('touchstart','#next',function(){
+                    proBanner1.slideNext();
+                    proBanner2.slideNext();
                 });
                 //
-                proBanner.params.control = navBanner;
-                navBanner.params.control = proBanner;
-            },2000);
+            },500);
 
         },"JSON");
     },
@@ -72,7 +73,9 @@ var all=new Vue({
         },
         replaceBanner:function(jsonFile,index){
             var $this=this;
+
             $.get('json/prodect.json',false,function (res) {
+
                 switch (jsonFile){
                     case "bsys":
                         $this.productList=res.bsys.banner[index];
@@ -101,32 +104,39 @@ var all=new Vue({
                 }
 
                 setTimeout(function(){
-                    //导航轮播图
-                    var navBanner = new Swiper('.swiper-container-nav', {
-                        slidesPerView: 'auto',
-                        paginationClickable: true,
-                        loopedSlides:6,
-                        spaceBetween:8,
-                        centeredSlides:true,
-                        touchRatio: 0.2,
-                        slideToClickedSlide: true
+
+                    //产品轮播图
+                    var proBanner1 = new Swiper('.swiper-container-pro1', {
+                        pagination: '.swiper-pagination',
+                        effect : 'fade',
+                        loop:true,
+                        onlyExternal : true,
+
                     });
                     //产品轮播图
-                    var proBanner = new Swiper('.swiper-container-pro', {
+                    var proBanner2 = new Swiper('.swiper-container-pro2', {
                         pagination: '.swiper-pagination',
-                        slidesPerView: 'auto',
-                        paginationClickable: true,
-                        autoplay:5000,
-                        loopedSlides:3,
-                        spaceBetween:10,
-                        centeredSlides:true,
-                        onInit: function(swiper){
-                        }
+                        loop:true,
+                        nextButton: '.swiper-button-next',
+                        prevButton: '.swiper-button-prev',
+                        onSlideNextStart:function(swiper){
+                            proBanner1.slideNext();
+                        },
+                        onSlidePrevStart:function(swiper){
+                            proBanner1.slidePrev();
+                        },
+
+                    });
+                    $(document).on('touchstart','#prev',function(){
+                        proBanner1.slidePrev();
+                        proBanner2.slidePrev();
+                    });
+                    $(document).on('touchstart','#next',function(){
+                        proBanner1.slideNext();
+                        proBanner2.slideNext();
                     });
                     //
-                    proBanner.params.control = navBanner;
-                    navBanner.params.control = proBanner;
-                },2000);
+                },500);
 
 
             },'JSON')
