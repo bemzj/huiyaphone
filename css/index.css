@@ -176,8 +176,8 @@ img{
 	background-color: #f6f7f7 !important;
 }
 	/*产品轮播图*/
-#allPro	.proBanner .swiper-slide{
-	width: 88%;
+.swiper-container-pro2 .swiper-slide{
+	width: 100%;
 	margin: 0 auto;
 }
 #allPro	.proBanner img{

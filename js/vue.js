@@ -110,7 +110,7 @@ var all=new Vue({
                         pagination: '.swiper-pagination',
                         effect : 'fade',
                         loop:true,
-                        onlyExternal : true,
+                        onlyExternal : true
 
                     });
                     //产品轮播图
@@ -119,6 +119,7 @@ var all=new Vue({
                         loop:true,
                         nextButton: '.swiper-button-next',
                         prevButton: '.swiper-button-prev',
+
                         onSlideNextStart:function(swiper){
                             proBanner1.slideNext();
                         },
@@ -140,6 +141,10 @@ var all=new Vue({
 
 
             },'JSON')
+        },
+        nextPrew:function(){
+
         }
+
     }
 });

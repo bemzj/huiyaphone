@@ -13,6 +13,7 @@
 	    <link rel="stylesheet" href="css/index.css?v=2" />
 	    <script type="text/javascript" src="js/lufylegend-1.10.1.min.js" ></script>
 	    <script type="text/javascript" src="js/swiper-3.4.2.min.js" ></script>
+
         <script type="text/javascript" src="https://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
 	    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 	    <script type="text/javascript" src="js/scrollReveal.js" ></script>
@@ -224,13 +225,28 @@
 				<div class="proBanner">
 					<div class="swiper-container swiper-container-pro2">
 						<div class="swiper-wrapper">
-							<div class="swiper-slide" v-for="item in productList.small">
-								<img src="{{item.thumb}}" />
-								<p>{{item.title}}</p>
-							</div>
+                            <template v-for="item in productList.small">
+                                <template v-if="key==0">
+                                    <div class="swiper-slide active-nav">
+                                        <div class="boxImg">
+                                            <img src="{{item.thumb}}" />
+                                            <p>{{item.title}}</p>
+                                        </div>
+                                    </div>
+                                </template>
+                               <template v-else>
+                                   <div class="swiper-slide">
+                                       <div class="boxImg">
+                                           <img src="{{item.thumb}}" />
+                                           <p>{{item.title}}</p>
+                                       </div>
+                                   </div>
+                               </template>
+                            </template>
+
 						</div>
-						<div class="swiper-button-prev" id="prev"></div>
-    					<div class="swiper-button-next" id="next"></div>
+						<div class="swiper-button-prev" id="prev" style="margin-left: -14px"></div>
+    					<div class="swiper-button-next" id="next" style="margin-right: "></div>
 					</div>			
 				</div>
 				<div class="allPro" >
