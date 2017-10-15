@@ -25,41 +25,7 @@ var all=new Vue({
             $this.productList=res.bsys.banner[0];
             $this.product=res;
             $this.format=res.bsys.format;
-
-            setTimeout(function(){
-                //产品轮播图
-                var proBanner1 = new Swiper('.swiper-container-pro1', {
-                    pagination: '.swiper-pagination',
-                    effect : 'fade',
-                    loop:true,
-                    onlyExternal : true
-
-                });
-                //产品轮播图
-                var proBanner2 = new Swiper('.swiper-container-pro2', {
-                    pagination: '.swiper-pagination',
-                    loop:true,
-                    nextButton: '.swiper-button-next',
-                    prevButton: '.swiper-button-prev',
-                    onSlideNextStart:function(swiper){
-                        proBanner1.slideNext();
-                    },
-                    onSlidePrevStart:function(swiper){
-                        proBanner1.slidePrev();
-                    },
-
-                });
-                $(document).on('touchstart','#prev',function(){
-                    proBanner1.slidePrev();
-                    proBanner2.slidePrev();
-                });
-                $(document).on('touchstart','#next',function(){
-                    proBanner1.slideNext();
-                    proBanner2.slideNext();
-                });
-                //
-            },500);
-
+            $this.nextPrew();
         },"JSON");
     },
     methods:{
@@ -103,47 +69,37 @@ var all=new Vue({
                         break;
                 }
 
-                setTimeout(function(){
-
-                    //产品轮播图
-                    var proBanner1 = new Swiper('.swiper-container-pro1', {
-                        pagination: '.swiper-pagination',
-                        effect : 'fade',
-                        loop:true,
-                        onlyExternal : true
-
-                    });
-                    //产品轮播图
-                    var proBanner2 = new Swiper('.swiper-container-pro2', {
-                        pagination: '.swiper-pagination',
-                        loop:true,
-                        nextButton: '.swiper-button-next',
-                        prevButton: '.swiper-button-prev',
-
-                        onSlideNextStart:function(swiper){
-                            proBanner1.slideNext();
-                        },
-                        onSlidePrevStart:function(swiper){
-                            proBanner1.slidePrev();
-                        },
-
-                    });
-                    $(document).on('touchstart','#prev',function(){
-                        proBanner1.slidePrev();
-                        proBanner2.slidePrev();
-                    });
-                    $(document).on('touchstart','#next',function(){
-                        proBanner1.slideNext();
-                        proBanner2.slideNext();
-                    });
-                    //
-                },500);
-
-
             },'JSON')
         },
         nextPrew:function(){
+            setTimeout(function(){
+                //产品轮播图
 
+                //产品轮播图
+                var proBanner2 = new Swiper('.swiper-container-pro2', {
+                    loopedSlides:3,
+                    spaceBetween:15,
+                    centeredSlides:true,
+                    autoplayDisableOnInteraction:false,
+                    slidesPerView : 'auto',
+                    onSlideNextStart:function(swiper){
+                        proBanner1.slideNext();
+                    },
+                    onSlidePrevStart:function(swiper){
+                        proBanner1.slidePrev();
+                    }
+
+                });
+                $(document).on('touchstart','#prev',function(){
+                    proBanner1.slidePrev();
+                    proBanner2.slidePrev();
+                });
+                $(document).on('touchstart','#next',function(){
+                    proBanner1.slideNext();
+                    proBanner2.slideNext();
+                });
+                //
+            },1500);
         }
 
     }

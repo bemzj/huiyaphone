@@ -215,8 +215,9 @@ img{
 }
 	/*产品轮播图*/
 .swiper-container-pro2 .swiper-slide{
-	width: 100%;
-	margin: 0 auto;
+	width: 1.5rem;
+	height: 1.7rem;
+	/*margin: 0 auto;*/
 }
 #allPro	.proBanner img{
 	width: 100%;
@@ -234,10 +235,11 @@ img{
 }
 #allPro .type p{
 	width: 100%;
-	font-size: 0.3rem;
+	font-size: 0.4rem;
 	line-height: 0.6rem;
 	color: #333333;
-	border-bottom: 1px solid #a0a0a0;
+	/*border-bottom: 1px solid #a0a0a0;*/
+	text-align: center;
 }
 	/*导航轮播图*/
 #allPro	.navBanner{
@@ -702,7 +704,7 @@ img{
 }
 .swiper-container-pro2 img{
 	padding-top: 15px;
-	width: 20%!important;
+	width: 80%!important;
 	margin: 0 auto!important;
 }
 .swiper-container-pro2 p{
@@ -740,4 +742,8 @@ img{
 	position: absolute;
 	left: 62%;
 	bottom:0%;
+}
+.swiper-container-pro1 .item{
+	width: 87% !important;
+	/*margin: 0 3%;*/
 }
