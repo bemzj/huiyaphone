@@ -9,22 +9,78 @@
 	    <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
 	    <meta content="telephone=no" name="format-detection"/>
 	    <link rel="stylesheet" href="css/reset.css" />
-
 	    <link rel="stylesheet" href="css/swiper-3.4.2.min.css" />
 	    <link rel="stylesheet" href="css/index.css?v=2" />
-        
-        <script type="text/javascript" src="js/lufylegend-1.10.1.min.js" ></script>
+<!--        <script type="text/javascript" src="js/lufylegend-1.10.1.min.js" ></script>-->
         <script type="text/javascript" src="https://static.runoob.com/assets/vue/1.0.11/vue.min.js"></script>
         <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/scrollReveal.js" ></script>
         <script type="text/javascript" src="js/swiper-3.4.2.min.js" ></script>
+        <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
         <script>
             //判断是否为手机端访问
             var uaTest = /Android|webOS|Windows Phone|iPhone|ucweb|ucbrowser|iPod|BlackBerry/i.test(navigator.userAgent.toLowerCase());
             var touchTest = 'ontouchend' in document;
             if(!uaTest || !touchTest){
-                window.location.href = 'http://huiya.hengdikeji.com/api/huiya/index.html';
+//                window.location.href = 'http://huiya.hengdikeji.com/api/huiya/index.html';
             }
+            $(function(){
+                $.ajax({
+                    type:'GET',
+                    url:'http://huiya.hengdikeji.com/jsssdk/',
+                    dataType:'JSON',
+                    success:function(res){
+
+                        wx.config({
+                            debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                            appId:res.appId, // 必填，公众号的唯一标识
+
+                            timestamp: res.timestamp, // 必填，生成签名的时间戳
+
+                            nonceStr:res.nonceStr, // 必填，生成签名的随机串
+
+                            signature:res.signature,// 必填，签名，见附录1
+
+                            jsApiList: ['onMenuShareTimeline','onMenuShareAppMessage','openLocation'] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+
+                        });
+                        window.wxj=wx;
+                        wx.ready(function () {
+                            wx.onMenuShareTimeline({
+                                title: '汇亚TT现代砖',
+                                desc: '年轻不止一面',
+                                link: res.url,
+                                imgUrl: 'http://huiya-product.hengdikeji.com/mobile/yp04.png',
+                                trigger: function (res) {
+                                },
+                                success: function (res) {
+                                },
+                                cancel: function (res) {
+                                },
+                                fail: function (res) {
+                                    alert(JSON.stringify(res));
+                                }
+                            });
+                            wx.onMenuShareAppMessage({
+                                title: '汇亚TT现代砖',
+                                desc: '年轻不止一面',
+                                link: res.url,
+                                imgUrl: 'http://huiya-product.hengdikeji.com/mobile/yp04.png',
+                                trigger: function (res) {
+                                },
+                                success: function (res) {
+                                },
+                                cancel: function (res) {
+                                },
+                                fail: function (res) {
+                                    alert(JSON.stringify(res));
+                                }
+                            });
+
+                        })
+                    }
+                });
+            })
         </script>
 	</head>
 	<body id="vueMain">
@@ -32,7 +88,7 @@
 
         </div>
 		<div id="load"></div>
-		<div id="content" style="display: none;">
+		<div id="content" style="display: block;">
 			<!--轮播图-->
 			<div id="banner">
 				<div class="swiper-container swiper-container-banner">
@@ -172,27 +228,27 @@
 					<div class="navs">
 						<ul>
 							<li class="navs-active" v-on:touchstart="replaceBanner('bsys',0)">
-								<a href="###" class="floatl">芭莎时代</a>
+								<a href="javascript:;" class="floatl">芭莎时代</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
 							<li>
-								<a href="###" class="floatl" v-on:touchstart="replaceBanner('tys',0)">T时代</a>
+								<a href="javascript:;" class="floatl" v-on:touchstart="replaceBanner('tys',0)">T时代</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
 							<li>
-								<a href="###" class="floatl" v-on:touchstart="replaceBanner('msnh',0)">木色年华</a>
+								<a href="javascript:;" class="floatl" v-on:touchstart="replaceBanner('msnh',0)">木色年华</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
 							<li>
-								<a href="###" class="floatl" v-on:touchstart="replaceBanner('xdbw',0)">现代布纹</a>
+								<a href="javascript:;" class="floatl" v-on:touchstart="replaceBanner('xdbw',0)">现代布纹</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
 							<li>
-								<a href="###" class="floatl" v-on:touchstart="replaceBanner('gyyx',0)">工业印象</a>
+								<a href="javascript:;" class="floatl" v-on:touchstart="replaceBanner('gyyx',0)">工业印象</a>
 								<span class="floatl"></span>
 								<div class="clearl"></div>
 							</li>
@@ -210,37 +266,18 @@
 	    				<div class="swiper-pagination"></div>
 					</div>
 				</div>-->
-				<div class="proBanner">
+				<div class="proBanner" >
+
 					<div class="swiper-container swiper-container-pro1">
-						<div class="swiper-wrapper" style="opacity: 0">
-							<div class="swiper-slide item">
-								<img src="http://huiya-product.hengdikeji.com/m-bsbig.jpg" />
+						<div class="swiper-wrapper">
+							<div class="swiper-slide item" v-for="item in productList.big">
+								<img src="{{item.thumb}}" />
 							</div>
-                            <div class="swiper-slide item">
-                                <img src="http://huiya-product.hengdikeji.com/m-bsbig.jpg" />
-                            </div>
-                            <div class="swiper-slide item">
-                                <img src="http://huiya-product.hengdikeji.com/m-bsbig.jpg" />
-                            </div>
+
 						</div>
+                        <div class="swiper-pagination pro1page"></div>
 					</div>
-                    <script type="text/javascript">
-                        $(function(){
-                            var proBanner1 = new Swiper('.swiper-container-pro1', {
-                                autoplay:5000,
-                                loop:true,
-                                loopedSlides:3,
-                                spaceBetween:15,
-                                centeredSlides:true,
-                                autoplayDisableOnInteraction:false,
-                                slidesPerView : 'auto',
-                                onInit:function(){
-                                    $('.swiper-container-pro1 .swiper-wrapper').css({"opacity":1});
-                                    console.log('实例华拉');
-                                },
-                            });
-                        })
-                    </script>
+
 				</div>
 				<div class="allPro">
 					<div class="type">
@@ -258,14 +295,16 @@
 						</div>
 					</div>
 				</div>-->
-				<div class="proBanner">
+				<div class="proBanner" style="position: relative">
 					<div class="swiper-container swiper-container-pro2">
 						<div class="swiper-wrapper">
-                            <template v-for="item in productList.small">
+                            <template v-for="(key,item) in productList.small">
                                 <template v-if="key==0">
                                     <div class="swiper-slide active-nav">
                                         <div class="boxImg">
-                                            <img src="{{item.thumb}}" />
+                                            <div class="imgBox">
+                                                <img src="{{item.thumb}}" style="width: 100%;height: {{item.h}}%;"/>
+                                            </div>
                                             <p>{{item.title}}</p>
                                         </div>
                                     </div>
@@ -273,7 +312,9 @@
                                <template v-else>
                                    <div class="swiper-slide">
                                        <div class="boxImg">
-                                           <img src="{{item.thumb}}" />
+                                           <div class="imgBox">
+                                               <img src="{{item.thumb}}" style="width: 100%;height: {{item.h}}%;"/>
+                                           </div>
                                            <p>{{item.title}}</p>
                                        </div>
                                    </div>
@@ -282,7 +323,10 @@
 
 						</div>
 
-					</div>			
+					</div>
+
+                    <div class="swiper-button-prev" id="prev2"></div>
+                    <div class="swiper-button-next" id="next2"></div>
 				</div>
 
 				<div class="allPro" >
@@ -291,7 +335,25 @@
 					</div>
 				</div>
 				<div class="types">
-					<img src="{{format}}" />
+
+					 <div class="dt">
+                        <div class="sizeBox dr">
+                            <template v-for="item in productList.size">
+                                <div class="dtd">
+                                    <div class="ddt">
+                                        <div class="ddr">
+                                            <div class="fst" style="width: {{(item.w/10)+20}}px;height:{{(item.h/10)+20}}px ">
+                                                {{item.h}} X {{item.w}} <br/>
+                                                mm
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </template>
+                        </div>
+                     </div>
+
 				</div>
 			</div>
 			<!--芭莎视频-->
@@ -462,8 +524,8 @@
 				<div class="bottom">
 					<img src="http://huiya-product.hengdikeji.com/mobile/bottompl.png" data-scroll-reveal="enter left and move 20px over 0.8s " />
 					<img src="http://huiya-product.hengdikeji.com/mobile/bottompr.png" data-scroll-reveal="enter right and move 20px over 0.8s "/>				
-					<img src="http://huiya-product.hengdikeji.com/mobile/bottomtr.png" data-scroll-reveal="enter right and move 20px over 1.5s "/>
-					<img src="http://huiya-product.hengdikeji.com/mobile/bottomtl.png" data-scroll-reveal="enter left and move 20px over 1.5s "/>
+					<img src="http://huiya-product.hengdikeji.com/mobile/bottomtr.png?v=1" data-scroll-reveal="enter right and move 20px over 1.5s "/>
+					<img src="http://huiya-product.hengdikeji.com/mobile/bottomtl.png?v=2" data-scroll-reveal="enter left and move 20px over 1.5s "/>
 				</div>
 			</div>
 			<div id="ad">
@@ -486,9 +548,8 @@
             <script src="https://s22.cnzz.com/z_stat.php?id=1264538472&web_id=1264538472" language="JavaScript"></script>
         </div>
 
-
 		<script type="text/javascript" src="js/index.js" ></script>
-		<script type="text/javascript" src="js/vue.js" ></script>
+		<script type="text/javascript" src="js/vue.js?V=1" ></script>
 		<script>
 			//px转rem
 			(function(doc, win) {

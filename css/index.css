@@ -216,8 +216,8 @@ img{
 	/*产品轮播图*/
 .swiper-container-pro2 .swiper-slide{
 	width: 1.5rem;
-	height: 1.7rem;
-	/*margin: 0 auto;*/
+	height: 1.9rem;
+	margin: 0 0.1rem;
 }
 #allPro	.proBanner img{
 	width: 100%;
@@ -236,7 +236,7 @@ img{
 #allPro .type p{
 	width: 100%;
 	font-size: 0.4rem;
-	line-height: 0.6rem;
+	line-height: 0.9rem;
 	color: #333333;
 	/*border-bottom: 1px solid #a0a0a0;*/
 	text-align: center;
@@ -703,14 +703,14 @@ img{
 	display: none !important;
 }
 .swiper-container-pro2 img{
-	padding-top: 15px;
+	padding-top: 5px;
 	width: 80%!important;
 	margin: 0 auto!important;
 }
 .swiper-container-pro2 p{
 	text-align: center;
 	font-size: 0.2rem;
-	margin-top: 5px;
+	margin-top:11px;
 }
 .swiper-container-pro2 .swiper-button-prev{
 	background-image: url(../img/left.png);
@@ -746,4 +746,75 @@ img{
 .swiper-container-pro1 .item{
 	width: 87% !important;
 	/*margin: 0 3%;*/
+	opacity:0;
+
+}
+.swiper-container-pro2{
+	width: 80%;
+}
+.swiper-container-pro2 .swiper-slide{
+	width:1.5rem;
+}
+.swiper-container-pro2 .active-nav .boxImg{
+	box-shadow: 0 3px 11px 1px #999999;
+	border-top: 1px solid rgba(153,153,153,0.8) !important;
+	padding-bottom: 5px;
+}
+.swiper-container-pro2 .swiper-slide .boxImg .imgBox{
+	/*padding: 4px;*/
+	width: 1.3rem;
+	height: 1.3rem;
+	/*padding-top: 10px;*/
+	margin: 0 auto;
+	line-height: 1.3rem;
+}
+.swiper-container-pro2 .swiper-slide .boxImg .imgBox img{
+	width: 100% !important;
+	display: inline-block;
+	vertical-align: middle;
+}
+#prev2{
+	background-image: url(../img/left.png);
+	width: 27px;
+	height: 44px;
+	background-size: 32px 32px;
+	margin-top: -0.55rem;
+}
+#next2{
+	background-image: url(../img/right.png);
+	width: 27px;
+	height: 44px;
+	background-size: 32px 32px;
+	margin-top: -0.55rem;
+}
+
+.types .dt{
+	display: table;
+	margin-left: 7%;
+}
+.sizeBox{
+	width: 100%;
+	min-height: 90px;
+	/*position: relative;*/
+	display: table-row;
+}
+.sizeBox .dtd{
+	display: table-cell;
+	vertical-align: bottom;
+	padding: 7px;
+}
+.sizeBox .dtd .ddt{
+	display: table;
+}
+.sizeBox .dtd .ddr{
+	display: table-row;
+}
+.sizeBox .fst{
+	border: 2px solid rgb(200,201,202);
+	margin: 0 5px;
+	color: rgb(134,135,136);
+	font-size: 16px;
+	text-align: center;
+	display: table-cell;
+	vertical-align: middle;
 }

@@ -7,24 +7,24 @@ var data={
         "title":'芭莎岩石',
         "video":'http://ovy8sjkfb.bkt.clouddn.com/zls.mp4'
     },
-    format:''
+    format:'',
+    proBanner2:'',
+    proBanner1:''
 };
 var all=new Vue({
     el:'#vueMain',
     data:data,
     created:function(){
+
         var $this=this;
         $.get('json/banner.json',false,function(res){
             $this.banners=res.banner;
-            setTimeout(function(){
 
-            },500)
         },"JSON");
 
         $.get('json/prodect.json',false,function(res){
             $this.productList=res.bsys.banner[0];
             $this.product=res;
-            $this.format=res.bsys.format;
             $this.nextPrew();
         },"JSON");
     },
@@ -45,61 +45,107 @@ var all=new Vue({
                 switch (jsonFile){
                     case "bsys":
                         $this.productList=res.bsys.banner[index];
-                        $this.format=res.bsys.format;
+
                         break;
                     case "tys":
                         $this.productList=res.tys.banner[index];
-                        $this.format=res.tys.format;
+
                         break;
                     case "msnh":
                         $this.productList=res.msnh.banner[index];
-                        $this.format=res.msnh.format;
+
                         break;
                     case "xdbw":
                         $this.productList=res.xdbw.banner[index];
-                        $this.format=res.xdbw.format;
+
                         break;
                     case "gyyx":
                         $this.productList=res.gyyx.banner[index];
-                        $this.format=res.gyyx.format;
+
                         break;
                     case "dsjh":
                         $this.productList=res.dsjh.banner[index];
-                        $this.format=res.dsjh.format;
+
                         break;
                 }
-
+                $this.nextPrew();
             },'JSON')
         },
         nextPrew:function(){
+            var $this=this;
+            $('.swiper-container-pro1 .item').css({"opacity":0});
             setTimeout(function(){
-                //产品轮播图
 
                 //产品轮播图
                 var proBanner2 = new Swiper('.swiper-container-pro2', {
+                    slidesPerView : 'auto',
+                    onlyExternal: true,
+                    observer:true,
+                    observeParents:true,
+
+                    onInit:function(){
+                        var l=$('.swiper-container-pro2 .swiper-slide').length;
+                        if(l<3){
+                            var w=l*1.5+0.5;
+                            $('.swiper-container-pro2').css("width",w+'rem');
+
+                        }else{
+                            $('.swiper-container-pro2').css("width",'80%');
+                        }
+                    }
+                });
+
+                var proBanner1 = new Swiper('.swiper-container-pro1', {
+                    loop:true,
                     loopedSlides:3,
                     spaceBetween:15,
                     centeredSlides:true,
                     autoplayDisableOnInteraction:false,
                     slidesPerView : 'auto',
-                    onSlideNextStart:function(swiper){
-                        proBanner1.slideNext();
+
+                    onInit:function(swiper){
+                        $('.swiper-container-pro1 .item').css({"opacity":1});
                     },
-                    onSlidePrevStart:function(swiper){
-                        proBanner1.slidePrev();
-                    }
+                    onSlideChangeStart: function(swiper) {
+                        upprev(swiper);
+                        swiper.update();
+                        swiper.slideTo(0);
+                    },
+                    observer:true,
+                    observeParents:true
 
                 });
-                $(document).on('touchstart','#prev',function(){
-                    proBanner1.slidePrev();
-                    proBanner2.slidePrev();
+                $('#prev2').on('click',function(){
+                    proBanner1.slidePrev()
                 });
-                $(document).on('touchstart','#next',function(){
-                    proBanner1.slideNext();
-                    proBanner2.slideNext();
+                $('#next2').on('click',function(){
+                    proBanner1.slideNext()
                 });
+                $('.swiper-container-pro2 .swiper-slide').on('click',function(){
+                    var index=$(this).index();
+                    proBanner1.slideTo(index+3);
+                });
+                function upprev(swiper){
+
+                    $('.swiper-container-pro2 .active-nav').removeClass('active-nav');
+
+                    var activeNav = $('.swiper-container-pro2 .swiper-slide').eq(swiper.realIndex).addClass('active-nav');
+
+                    if (!activeNav.hasClass('swiper-slide-visible')) {
+
+
+                        if (activeNav.index() > proBanner2.activeIndex) {
+                            var thumbsPerNav = Math.floor(proBanner2.width / activeNav.width()) - 1;
+                            proBanner2.slideTo(activeNav.index() - thumbsPerNav)
+                        } else {
+                            proBanner2.slideTo(activeNav.index())
+                        }
+                    }
+                    $('.pro1page .swiper-pagination-bullet-active').removeClass('swiper-pagination-bullet-active');
+                    $('.pro1page .swiper-pagination-bullet').eq(swiper.realIndex).addClass('swiper-pagination-bullet-active');
+                }
                 //
-            },1500);
+            },1000);
         }
 
     }
